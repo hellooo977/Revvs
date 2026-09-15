@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Revscene — discover car shows near you."
+  />
+  <title>Revscene — Your Local Car-Show Radar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Revscene home">REVSCENE</a>
+
+    <button class="menu-button" type="button" aria-label="Open menu">
+      ☰
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR LOCAL CAR-SHOW RADAR</p>
+
+      <h1>Find the next<br />great meet.</h1>
+
+      <p class="hero-copy">
+        Discover car shows near you, see their dates and locations,
+        check event-day weather and traffic, and preview the cars
+        expected to appear.
+      </p>
+
+      <form class="search-form" id="search-form">
+        <label class="sr-only" for="city">Enter a city</label>
+
+        <input
+          id="city"
+          name="city"
+          type="search"
+          value="Hyderabad"
+          placeholder="Enter your city"
+          autocomplete="address-level2"
+        />
+
+        <button type="submit">Find shows</button>
+      </form>
+    </section>
+
+    <section class="events-section" aria-labelledby="upcoming-heading">
+      <div class="section-heading">
+        <h2 id="upcoming-heading">Upcoming events</h2>
+
+        <div class="filters" role="group" aria-label="Event filters">
+          <button class="filter active" type="button" data-filter="all">
+            All
+          </button>
+
+          <button class="filter" type="button" data-filter="weekend">
+            This weekend
+          </button>
+
+          <button class="filter" type="button" data-filter="classics">
+            Classics
+          </button>
+        </div>
+      </div>
+
+      <div class="event-grid" id="events" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="event-dialog" class="event-dialog">
+    <div class="dialog-content">
+      <button
+        class="close-dialog"
+        id="close-dialog"
+        type="button"
+        aria-label="Close event details"
+      >
+        ×
+      </button>
+
+      <p class="eyebrow" id="modal-date"></p>
+      <h2 id="modal-title"></h2>
+      <p class="modal-location" id="modal-location"></p>
+
+      <div class="event-info">
+        <div>
+          <span>🌦</span>
+          <div>
+            <strong>Weather</strong>
+            <p>Demo forecast</p>
+          </div>
+        </div>
+
+        <div>
+          <span>🚗</span>
+          <div>
+            <strong>Traffic</strong>
+            <p>Demo traffic conditions</p>
+          </div>
+        </div>
+
+        <div>
+          <span>🗺</span>
+          <div>
+            <strong>Venue</strong>
+            <p id="modal-venue"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
